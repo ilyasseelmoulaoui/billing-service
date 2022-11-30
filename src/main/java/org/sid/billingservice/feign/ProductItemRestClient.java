@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 
-@FeignClient(name = "PRODUCT-SERVICE")         //Pour pouvoir communiquer avec les autres micro services
+@FeignClient(name = "PRODUCT-SERVICE")         //Pour pouvoir communiquer avec les autres micro-services
 public interface ProductItemRestClient {
     @GetMapping(path = "/products")
-    PagedModel<Product> pageProducts(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size" ,defaultValue = "7") int size);
+    PagedModel<Product> pageProducts(@RequestParam(value = "page", defaultValue = "0") int page,
+                                     @RequestParam(value = "size" ,defaultValue = "7") int size);
 
     @GetMapping(path = "/products/{id}")
     Product getProductById(@PathVariable Long id);
